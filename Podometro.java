@@ -125,16 +125,21 @@ public class Podometro {
             "\nLongitud zancada: " + (longitudZancada / 100) + " mtos");
     }
 
-    /**
-     * Muestra en pantalla información acerca de la distancia recorrida,
-     * pasos, tiempo total caminado, ....
-     * 
-     * (leer enunciado)
-     *  
-     */
-    public void printEstadísticas() {
-
-    }
+    // /**
+    // * Muestra en pantalla información acerca de la distancia recorrida,
+    // * pasos, tiempo total caminado, ....
+    // * 
+    // * (leer enunciado)
+    // *  
+    // */
+    // public void printEstadísticas() {
+    // t
+    // System.out.println("Estadísticas" +
+    // "\n*****************************" +
+    // "\nDistancia recorrida toda la semana: " + (totalDistanciaSemana / 100000) + " mtos" +
+    // "\nSexo: " + sex +
+    // "\nLongitud zancada: " + (longitudZancada / 100) + " mtos");
+    // }
 
     // /**
     // *  Calcula y devuelve un String que representa el nombre del día
@@ -151,6 +156,15 @@ public class Podometro {
      *  
      */    
     public void reset() {
-
+        altura = 0;
+        sexo = MUJER;
+        longitudZancada = 0;
+        totalPasosLaborables = 0;
+        totalPasosSabado = 0;
+        totalPasosDomingo = 0;
+        totalDistanciaSemana = 0;
+        totalDistanciaFinSemana = 0;
+        tiempo = 0;
+        caminatasNoche = 0;
     }
 }
