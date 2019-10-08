@@ -57,8 +57,8 @@ public class Podometro {
         if (sexo == HOMBRE){
             longitudZancada = Math.ceil(altura * ZANCADA_HOMBRE);
         }
-        else if (sexo == MUJER){
-            longitudZancada = Math.floor(altura * ZANCADA_HOMBRE);
+        else {
+            longitudZancada = Math.floor(altura * ZANCADA_MUJER);
         }
     }
 
@@ -77,7 +77,30 @@ public class Podometro {
      */
     public void registrarCaminata(int pasos, int dia, int horaInicio,
     int horaFin) {
-
+        String diaSemana = "";
+        double distancia = pasos * longitudZancada;
+        tiempo += ((horaFin / 100) * 60 + horaFin % 100) - ((horaInicio / 100) * 60 + horaInicio % 100);
+        totalDistanciaSemana += distancia;
+        switch (dia){
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5: diaSemana = "Laborable";
+            break;
+            case 6: diaSemana = "Sábado";
+            break;
+            case 7: diaSemana = "Domingo";
+        }
+        if (diaSemana == "Laborable"){
+            totalPasosLaborables += distancia;
+        }
+        else if (diaSemana == "Sábado") {
+            totalPasosSabado += distancia;
+        }
+        else {
+            totalPasosDomingo += distancia;
+        }
     }
 
     /**
@@ -88,7 +111,18 @@ public class Podometro {
      *  
      */
     public void printConfiguracion() {
-
+        String sex = "";
+        if (sexo == HOMBRE){
+            sex = "HOMBRE";
+        }
+        else {
+            sex = "MUJER";
+        }
+        System.out.println("Configuración del podómetro" +
+            "\n*****************************" +
+            "\nAltura: " + (altura / 100) + " mtos" +
+            "\nSexo: " + sex +
+            "\nLongitud zancada: " + (longitudZancada / 100) + " mtos");
     }
 
     /**
